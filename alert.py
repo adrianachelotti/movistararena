@@ -8,10 +8,11 @@ app = Flask(__name__)
 
 MOVISTAR_ARENA_URL = "https://www.movistararena.com.ar/"
 KNOWN_SHOWS = set()
-EMAIL_SENDER = "tuemail@gmail.com"
-EMAIL_PASSWORD = "tupassword"
-EMAIL_RECEIVER = "destinatario@gmail.com"
 
+EMAIL_SENDER = os.getenv("EMAIL_SENDER")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+EMAIL_RECEIVER = os.getenv("EMAIL_RECEIVER")
+SENDGRID_API_KEY = os.getenv("SENDGRID_API_KEY")
 
 def get_shows():
     response = requests.get(MOVISTAR_ARENA_URL)
